@@ -9,5 +9,5 @@ app.use('/api/v1/blockchain', blockchainRouter);
 
 const PORT = 3001;
 
-app.listen(PORT, () => console.log(`Nu är server ${PORT} igång`));
+app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
 

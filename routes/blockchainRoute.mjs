@@ -4,7 +4,8 @@ import { getBlockchain, postBlockchain } from '../controllers/blockchainControll
 
 const blockchainRouter = Router();
 
-blockchainRouter.route('/').get(getBlockchain).post(postBlockchain)
+blockchainRouter.route('/').get(getBlockchain);
+blockchainRouter.route('/mine').post(postBlockchain);
 
 
 export default blockchainRouter;
