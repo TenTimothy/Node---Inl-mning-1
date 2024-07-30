@@ -1,8 +1,11 @@
 import { Router } from 'express'; 
-import { getBlockchain } from '../controllers/blockchainController.mjs';
+import { getBlockchain, postBlockchain } from '../controllers/blockchainController.mjs';
+
 
 const blockchainRouter = Router();
 
-blockchainRouter.route('/').get(getBlockchain)
+blockchainRouter.route('/').get(getBlockchain).post(postBlockchain)
+
 
 export default blockchainRouter;
+
