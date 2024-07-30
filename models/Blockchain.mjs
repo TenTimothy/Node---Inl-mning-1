@@ -6,7 +6,7 @@ export default class Blockchain {
         this.chain = [];
         console.log('Blockchain constructor called');
 
-        // Skapa vår genesis block
+        // Skapa vårt genesis block
         this.createBlock('0', '0', []);
     }
 
@@ -15,6 +15,10 @@ export default class Blockchain {
         this.chain.push(block);
 
         return block;
+    }
+
+    getLastBlock() {
+        return this.chain.at(-1);
     }
 
     hashBlock(previousBlockHash, currentBlockData) {

@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from 'url';
 import { blockchain } from "../startup.mjs";
-import { log } from "console";
 
 console.log('Imported blockchain instance:', blockchain);
 console.log('Available methods on blockchain:', Object.keys(blockchain));
@@ -12,9 +11,9 @@ export const getBlockchain = (req, res, next) => {
 };
 
 export const postBlockchain = (req, res, next) => {
-    const lastBlockHash = '0000';
+    const lastBlock = blockchain.getLastBlock();
+    const lastBlockHash = lastBlock.currentBlockHash;
     const data = req.body;
-    console.log(data);
 
     const currentBlockHash = blockchain.hashBlock(lastBlockHash, data);
     const block = blockchain.createBlock(lastBlockHash, currentBlockHash, data);
