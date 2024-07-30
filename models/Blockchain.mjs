@@ -7,11 +7,19 @@ export default class Blockchain {
         console.log('Blockchain constructor called');
 
         // Skapa vårt genesis block
-        this.createBlock('0', '0', []);
+        this.createBlock(Date.now(), '0', '0', []);
     }
 
-    createBlock(previousBlockHash, currentBlockHash, data) {
-        const block = new Block(this.chain.length + 1, previousBlockHash, currentBlockHash, data);
+    // Metod för att lägga till ett nytt block i kedjan
+    createBlock(timestamp, previousBlockHash, currentBlockHash, data) {
+        const block = new Block(
+            timestamp,
+            this.chain.length + 1,
+            previousBlockHash,
+            currentBlockHash,
+            data
+        );
+
         this.chain.push(block);
 
         return block;
@@ -21,10 +29,23 @@ export default class Blockchain {
         return this.chain.at(-1);
     }
 
-    hashBlock(previousBlockHash, currentBlockData) {
-        const stringToHash = previousBlockHash + JSON.stringify(currentBlockData);
+    hashBlock(timestamp, previousBlockHash, currentBlockData, nonce) {
+        const stringToHash = timestamp.toString() + previousBlockHash + JSON.stringify(currentBlockData) + nonce;
         const hash = createHash(stringToHash);
         return hash;
+    }
+
+    // Proof of work
+    proofOfWork(timestamp, previousBlockHash, data) {
+        let nonce = 0;
+        let hash = this.hashBlock(timestamp, previousBlockHash, data, nonce);
+
+        while (hash.substring(0, 3) !== '000') {
+            nonce++;
+            hash = this.hashBlock(timestamp, previousBlockHash, data, nonce);
+        }
+
+        return nonce;
     }
 }
 

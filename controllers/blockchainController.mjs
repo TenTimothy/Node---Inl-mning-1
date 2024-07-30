@@ -10,13 +10,16 @@ export const getBlockchain = (req, res, next) => {
     res.status(200).json({ success: true, statusCode: 200, data: blockchain });
 };
 
+
+// endpoint .../mined block
 export const postBlockchain = (req, res, next) => {
     const lastBlock = blockchain.getLastBlock();
     const lastBlockHash = lastBlock.currentBlockHash;
     const data = req.body;
-
-    const currentBlockHash = blockchain.hashBlock(lastBlockHash, data);
-    const block = blockchain.createBlock(lastBlockHash, currentBlockHash, data);
+    const timestamp = Date.now();
+    const nonce = blockchain.proofOfWork(timestamp,lastBlock.hash, data)
+    const currentBlockHash = blockchain.hashBlock(timestamp,lastBlockHash, data, nonce);
+    const block = blockchain.createBlock(timestamp, lastBlockHash, currentBlockHash, data);
 
     res.status(201).json({ success: true, statusCode: 201, data: block });
     

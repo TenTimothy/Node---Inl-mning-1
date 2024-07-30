@@ -1,6 +1,7 @@
 import express from 'express';
 import blockchainRouter from './routes/blockchainRoute.mjs';
 
+
 const app = express();
 
 app.use(express.json());
