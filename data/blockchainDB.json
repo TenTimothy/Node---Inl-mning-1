@@ -42,6 +42,15 @@
       "data": {
         "productname": "kebab"
       }
+    },
+    {
+      "timestamp": 1722434915383,
+      "blockIndex": 6,
+      "previousBlockHash": "0008bb02ec61847b9db30c7e6ababe2f2c6927b4e4cc2b8f299e17b94f7daf5a",
+      "currentBlockHash": "00048dee54f5b3014000e2e1860ba72be0ecad8ac88a14af13b26415f7a9f75f",
+      "data": {
+        "productname": "pizza"
+      }
     }
   ]
 }
