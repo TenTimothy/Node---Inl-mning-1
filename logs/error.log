@@ -1,0 +1,12 @@
+2024-07-31T13:43:40.301Z - SyntaxError: Unexpected token '}', ..."ctname": 
+}" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parse (/Users/sabatimothy/Desktop/Node---Inl-mning-1-2/node_modules/body-parser/lib/types/json.js:92:19)
+    at /Users/sabatimothy/Desktop/Node---Inl-mning-1-2/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:206:9)
+    at invokeCallback (/Users/sabatimothy/Desktop/Node---Inl-mning-1-2/node_modules/raw-body/index.js:238:16)
+    at done (/Users/sabatimothy/Desktop/Node---Inl-mning-1-2/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/Users/sabatimothy/Desktop/Node---Inl-mning-1-2/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:518:28)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
