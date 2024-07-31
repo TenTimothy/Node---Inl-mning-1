@@ -1,5 +1,14 @@
 import Blockchain from "./models/Blockchain.mjs";
+import blockchainDB from "./data/blockchainDB.json" assert { type: 'json'};
 
-export const blockchain = new Blockchain();
+export let blockchain = new Blockchain(); 
 
-console.log('Blockchain instance:', blockchain);
+console.log(blockchainDB);
+
+if(Object.keys(blockchainDB).length > 0){
+    blockchain = new Blockchain(blockchainDB.chain);
+}; 
+
+
+
+

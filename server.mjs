@@ -1,5 +1,11 @@
+import path from "path";
+import { fileURLToPath } from 'url';
 import express from 'express';
 import blockchainRouter from './routes/blockchainRoute.mjs';
+import { log } from "console";
+
+global.__appdir = path.dirname(fileURLToPath(import.meta.url));
+console.log(__appdir);
 
 
 const app = express();

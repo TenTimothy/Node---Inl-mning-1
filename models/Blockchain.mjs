@@ -2,12 +2,12 @@ import { createHash } from "../utils/crypto-lib.mjs";
 import Block from "./Block.mjs";
 
 export default class Blockchain {
-    constructor() {
-        this.chain = [];
+    constructor(chain) {
+        this.chain = chain || [];
         console.log('Blockchain constructor called');
 
         // Skapa vårt genesis block
-        this.createBlock(Date.now(), '0', '0', []);
+        !chain && this.createBlock(Date.now(), '0', '0', []);
     }
 
     // Metod för att lägga till ett nytt block i kedjan
