@@ -51,6 +51,15 @@
       "data": {
         "productname": "pizza"
       }
+    },
+    {
+      "timestamp": 1722502392563,
+      "blockIndex": 7,
+      "previousBlockHash": "00048dee54f5b3014000e2e1860ba72be0ecad8ac88a14af13b26415f7a9f75f",
+      "currentBlockHash": "00022fd1e03b49e8ada1ae77462180a448aae13ba8a99a7c7d68dd87235cd14e",
+      "data": {
+        "productname": "hamburgare"
+      }
     }
   ]
 }
